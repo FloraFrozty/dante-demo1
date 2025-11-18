@@ -1,0 +1,537 @@
+[
+    {
+        "fileName": "0 O THE FOOL",
+        "name": "The Fool",
+        "keywords": ["beginnings", "innocence", "freedom", "spontaneity", "leap of faith"],
+        "general": {
+            "visual_description": "A carefree youth stands at the edge of a cliff, a small dog by their side, a white rose in hand, and a bundle slung over the shoulder. The bright sun and open sky symbolize freedom and endless possibilities.",
+            "meaning": "The Fool represents new beginnings, innocence, and the courage to take a leap of faith. It embodies curiosity and optimism before the weight of experience, reminding us to trust the journey and embrace the unknown.",
+            "reversed_meaning": "When reversed, The Fool warns of recklessness, poor judgment, or fear of stepping forward. It can also suggest being unprepared or overly naive in a situation that demands caution."
+        },
+        "upright": {
+            "daily": "Whatever's coming at you, I'd say take a chance, and allow curiosity to take you!"
+        }
+    },
+    {
+        "fileName": "1 I THE MAGICIAN",
+        "name": "The Magician",
+        "keywords": ["manifestation", "willpower", "resourcefulness", "creativity"],
+        "general": {
+            "visual_description": "A figure stands before a table holding symbols of the four suits — wand, cup, sword, and pentacle — representing mastery of all elements. One hand points to the sky and the other to the earth, channeling power between realms.",
+            "meaning": "The Magician symbolizes manifestation, skill, and willpower. It marks the moment when ideas can be turned into reality through confidence and focused action.",
+            "reversed_meaning": "When reversed, The Magician warns of manipulation, deception, or scattered energy. It may also signify self-doubt or misuse of one’s talents."
+        },
+        "upright": {
+            "daily": "Everything you have right now is enough to make things happen today, right now! Focus on that energy and take action!!!"
+        }
+    },
+    {
+        "fileName": "2 II THE HIGH PRIESTESS",
+        "name": "The High Priestess",
+        "keywords": ["intuition", "mystery", "inner knowledge", "silence"],
+        "general": {
+            "visual_description": "A serene woman sits between two pillars marked B and J, symbolizing duality and hidden knowledge. She holds a scroll labeled 'TORA' and wears a crown representing spiritual wisdom.",
+            "meaning": "The High Priestess embodies intuition, secrets, and inner knowing. It encourages stillness, reflection, and trust in unseen truths rather than external evidence.",
+            "reversed_meaning": "When reversed, The High Priestess suggests ignoring intuition, hidden motives, or confusion clouding judgment. Secrets may surface or intuition may feel blocked."
+        },
+        "upright": {
+            "daily": "Your 'inside' have something to say to you today.. Pause and listen to what it has to say to you."
+        }
+    },
+    {
+        "fileName": "3 III THE EMPRESS",
+        "name": "The Empress",
+        "keywords": ["nurturing", "abundance", "fertility", "comfort"],
+        "general": {
+            "visual_description": "A crowned woman sits on a lush throne surrounded by nature and golden wheat fields. Venus’s symbol appears nearby, representing love, creativity, and fertility.",
+            "meaning": "The Empress signifies abundance, nurturing, and growth. She encourages creativity, self-care, and the embrace of sensual pleasures and emotional connection.",
+            "reversed_meaning": "When reversed, The Empress points to neglect, creative blocks, or dependence on others for validation. It may suggest emotional exhaustion or lack of self-nurturing."
+        },
+        "upright": {
+            "daily": "Take time to nurture yourself or others."
+        }
+    },
+    {
+        "fileName": "4 IV THE EMPEROR",
+        "name": "The Emperor",
+        "keywords": ["authority", "structure", "stability", "discipline"],
+         "general": {
+            "visual_description": "A stern ruler sits upon a stone throne adorned with rams, symbolizing authority and control. His armor beneath royal robes represents discipline and protection.",
+            "meaning": "The Emperor embodies structure, leadership, and responsibility. It reflects stability and the power of order in shaping progress.",
+            "reversed_meaning": "When reversed, it signals rigidity, domination, or misuse of authority. It may also reveal insecurity hidden beneath control."
+        },
+        "upright": {
+            "daily": "You need to step up and take charge of your day! Don't let others push you around!!!"
+        }
+    },
+    {
+        "fileName": "5 V THE HIEROPHANT",
+        "name": "The Hierophant",
+        "keywords": ["tradition", "guidance", "belief systems", "learning"],
+        "general": {
+            "visual_description": "A holy figure sits between two pillars, blessing followers. Keys at his feet symbolize spiritual knowledge and access to higher truth.",
+            "meaning": "The Hierophant represents tradition, learning, and moral guidance. It often signals mentorship, study, or aligning with established systems.",
+            "reversed_meaning": "If reveresed, the card suggests rebellion, questioning authority, or breaking free from outdated beliefs."
+        },
+        "upright": {
+            "daily": "You shall seek wisdom from those who came before you.. Maybe your mentor, or someone you look up to?"
+        }
+    },
+    {
+        "fileName": "6 VI THE LOVERS",
+        "name": "The Lovers",
+        "keywords": ["union", "harmony", "choice", "values", "partnership"],
+        "general": {
+            "visual_description": "A pair stands beneath an angel with the sun blazing above; behind them rise the Tree of Knowledge and the Tree of Life. A mountain separates and unites them at once, hinting at both desire and destiny, while the angel’s blessing frames the scene as sacred choice.",
+            "meaning": "The Lovers speaks to alignment — with a person, a path, or your own values. It’s about choosing with the heart and head together, honoring authenticity, trust, and the bonds that grow from honest commitment.",
+            "reversed_meaning": "When reversed, it warns of disharmony, mixed signals, or decisions made from fear or temptation. Misaligned values or avoidance of hard choices may be draining your energy."
+        },
+        "upright": {
+            "daily": "Do what feels right by you.. what you value, what resonates with you..."
+        }
+    },
+    {
+        "fileName": "7 VII THE CHARIOT",
+        "name": "The Chariot",
+        "keywords": ["determination", "control", "willpower", "victory", "direction"],
+        "general": {
+            "visual_description": "A confident warrior stands in a chariot drawn by two sphinxes — one black, one white — representing opposing forces held in perfect balance. The city lies behind, the open path ahead, as the starry canopy above signifies divine guidance on the journey.",
+            "meaning": "The Chariot is the card of drive, focus, and triumph through discipline. It urges you to harness your emotions and conflicting energies, directing them toward a clear goal. Success comes from steering your path with confidence and persistence.",
+            "reversed_meaning": "When reversed, The Chariot hints at losing direction, burnout, or letting emotions take the reins. Progress may stall when you try to force control instead of guiding it with purpose."
+        },
+        "upright": {
+            "daily": "Locked in on your goals! This is not the time to waver or get distracted!!"
+        }
+    },
+    {
+        "fileName": "8 VIII STRENGTH",
+        "name": "Strength",
+        "keywords": ["courage", "patience", "compassion", "inner power", "resilience"],
+        "general": {
+            "visual_description": "A gentle woman tames a lion with her bare hands beneath an infinity symbol floating over her head. The scene radiates calm strength — not through dominance, but through trust, grace, and quiet confidence.",
+            "meaning": "Strength represents the power of patience, empathy, and self-control. It reminds you that true bravery comes from compassion and understanding, not force. When you face challenges, your heart’s steadiness is your greatest weapon.",
+            "reversed_meaning": "When reversed, Strength suggests self-doubt, impatience, or emotional overwhelm. You may be underestimating your inner resilience or letting frustration cloud your calm."
+        },
+        "upright": {
+            "daily": "Ever heard of 'quiet strength'? Well.. now you have. Kindness, empathy, and patience is the wayy!"
+        }
+    },
+    {
+        "fileName": "9 IX THE HERMIT",
+        "name": "The Hermit",
+        "keywords": ["introspection", "solitude", "wisdom", "guidance", "reflection"],
+        "general": {
+            "visual_description": "An old traveler stands on a snowy peak, holding a lantern that glows softly in the dark. His cloak shields him from the cold as he looks inward rather than outward, the light symbolizing wisdom found through solitude.",
+            "meaning": "The Hermit calls for stillness and self-reflection. It’s about turning inward to find clarity, insight, and your own truth — away from distractions and noise. Wisdom comes not from others, but from within yourself.",
+            "reversed_meaning": "When reversed, The Hermit warns of excessive isolation, avoidance, or reluctance to face what’s inside. You might be withdrawing too much or ignoring the lessons introspection offers."
+        },
+        "upright": {
+            "daily": "You might need to be dependent on yourself for today.. Spending some 'me' time is not as bad as you think!"
+        }
+    },
+    {
+        "fileName": "10 X WHEEL OF FORTUNE",
+        "name": "Wheel of Fortune",
+        "keywords": ["fate", "change", "cycles", "luck", "destiny"],
+        "general": {
+            "visual_description": "A great golden wheel turns in the sky, inscribed with ancient symbols. Around it, mystical creatures read and watch — reminders that life moves in cycles of rise and fall, guided by unseen forces.",
+            "meaning": "The Wheel of Fortune represents fate, timing, and change. It’s the turning point where life’s cycles shift — sometimes by luck, sometimes by lessons. The key is to stay adaptable and flow with the rhythm of events.",
+            "reversed_meaning": "When reversed, it points to bad timing, resistance to change, or setbacks that feel out of your control. Patience and trust are needed until fortune turns again."
+        },
+        "upright": {
+            "daily": "Flow with the go! I mean.. Go with the flow. Yeah. Yeah I meant to say that..."
+        }
+        },
+        {
+        "fileName": "11 XI JUSTICE",
+        "name": "Justice",
+        "keywords": ["truth", "fairness", "law", "accountability", "balance"],
+        "general": {
+            "visual_description": "A solemn figure sits between stone pillars, holding a sword in one hand and scales in the other. The sword’s sharpness mirrors truth, while the scales weigh cause and consequence evenly.",
+            "meaning": "Justice stands for fairness, clarity, and the consequences of your actions. It asks you to act with integrity and face situations honestly — whatever choice you make will echo long after.",
+            "reversed_meaning": "When reversed, Justice warns of bias, dishonesty, or avoiding responsibility. You may be rationalizing something you know isn’t right."
+        },
+        "upright": {
+            "daily": "JUSTICE! BE FAIR TO ALL, BALANCED AND TRUUUEEEEE!"
+        }
+        },
+        {
+        "fileName": "12 XII THE HANGED MAN",
+        "name": "The Hanged Man",
+        "keywords": ["surrender", "patience", "perspective", "pause", "acceptance"],
+        "general": {
+            "visual_description": "A calm figure hangs upside down from a tree by one foot, surrounded by a radiant halo. Though bound, he appears peaceful — seeing the world from an entirely new angle.",
+            "meaning": "The Hanged Man invites surrender and fresh perspective. Progress sometimes comes from pausing, releasing control, and viewing life from a different point of view.",
+            "reversed_meaning": "When reversed, it suggests stagnation, indecision, or clinging to old patterns that block growth. Letting go is the only way forward."
+        },
+        "upright": {
+            "daily": "Some shift on perspective will do you good today. Try looking things.. you know.. upside-down?"
+        }
+    },
+    {
+        "fileName": "13 XIII DEATH",
+        "name": "Death",
+        "keywords": ["transformation", "endings", "renewal", "change", "rebirth"],
+        "general": {
+            "visual_description": "A skeletal rider in black armor rides a white horse, carrying a banner adorned with a white rose. The sun rises in the distance, symbolizing that every ending is the beginning of something new.",
+            "meaning": "Death signifies transformation and the closing of one chapter to begin another. It’s not about loss, but renewal — clearing away what no longer serves you to make space for growth.",
+            "reversed_meaning": "When reversed, it points to resistance to change or fear of letting go. Holding on to the past prevents the rebirth that’s waiting for you."
+        },
+        "upright": {
+            "daily": "To go forward, you must left something behind. That's just how life progression works!"
+        }
+        },
+        {
+        "fileName": "14 XIV TEMPERANCE",
+        "name": "Temperance",
+        "keywords": ["balance", "moderation", "harmony", "healing", "patience"],
+        "general": {
+            "visual_description": "An angel pours water between two cups under a golden glow, one foot on land and one in water, symbolizing perfect balance between the material and emotional worlds.",
+            "meaning": "Temperance represents harmony and patience — blending opposites into peace. It encourages moderation and cooperation to create stability and understanding.",
+            "reversed_meaning": "When reversed, it suggests imbalance, impatience, or overindulgence. Trying too hard to force balance can create the very chaos you’re avoiding."
+        },
+        "upright": {
+            "daily": "Keep calm and stay cool.."
+        }
+        },
+        {
+        "fileName": "15 XV THE DEVIL",
+        "name": "The Devil",
+        "keywords": ["temptation", "bondage", "addiction", "illusion", "desire"],
+        "general": {
+            "visual_description": "A horned figure sits on a dark throne, chains loosely binding two humans beneath him. The scene suggests control, but the chains can easily be lifted — the bondage is self-imposed.",
+            "meaning": "The Devil represents temptation, unhealthy attachments, and self-deception. It’s the part of you that clings to comfort even when it hurts, reminding you that freedom begins in awareness.",
+            "reversed_meaning": "When reversed, it shows liberation from restriction or awakening from illusion. Awareness helps you reclaim control over what once bound you."
+        },
+        "upright": {
+            "daily": "Notice what’s controlling your choices — awareness is the first step to freedom."
+        }
+        },
+        {
+        "fileName": "16 XVI THE TOWER",
+        "name": "The Tower",
+        "keywords": ["upheaval", "revelation", "chaos", "truth", "awakening"],
+        "general": {
+            "visual_description": "Lightning strikes a tall stone tower as people fall from its windows, symbolizing sudden upheaval and the collapse of false stability. Amid the destruction, truth is revealed.",
+            "meaning": "The Tower represents a shake-up — a sudden event or realization that dismantles illusions. Though disruptive, it clears space for truth and genuine growth.",
+            "reversed_meaning": "When reversed, it suggests avoiding change or resisting a needed breakdown. Holding on only delays the rebuilding process."
+        },
+        "upright": {
+            "daily": "Embrace the unexpected — what falls apart now makes room for something real."
+        }
+        },
+        {
+        "fileName": "17 XVII THE STAR",
+        "name": "The Star",
+        "keywords": ["hope", "healing", "faith", "renewal", "clarity"],
+        "general": {
+            "visual_description": "A woman kneels beside a calm pool, pouring water from two jugs under the light of a brilliant star. The sky glows softly, symbolizing hope and inspiration after turmoil.",
+            "meaning": "The Star is a symbol of healing and spiritual clarity. It comes after difficulty, offering renewal and the reassurance that light always returns after darkness.",
+            "reversed_meaning": "When reversed, it warns of discouragement, fatigue, or disconnection from hope. You may have forgotten how far you’ve come — it’s time to restore faith."
+        },
+        "upright": {
+            "daily": "Have faith — better days are coming, and your light’s beginning to shine again."
+        }
+        },
+    {
+        "fileName": "18 XVIII THE MOON",
+        "keywords": ["illusion", "dreams", "uncertainty", "intuition"],
+        "interpretation": "The Moon brings mystery and questions. It reflects the power of dreams and the hidden side of life, encouraging you to trust your instincts but also be mindful of confusion or illusions."
+    },
+    {
+        "fileName": "19 XIX THE SUN",
+        "keywords": ["joy", "success", "vitality", "clarity"],
+        "interpretation": "The Sun is warm, bright, and full of life. It brings joy, confidence, and clarity, reminding you to celebrate simple happiness and share your light with others."
+    },
+    {
+        "fileName": "20 XX JUDGEMENT",
+        "keywords": ["rebirth", "reflection", "awakening", "renewal"],
+        "interpretation": "Judgement is a call to reflect and rise. It asks you to look at the past honestly, learn from it, and step forward into a fresh sense of purpose and renewal."
+    },
+    {
+        "fileName": "21 XXI THE WORLD",
+        "keywords": ["completion", "wholeness", "success", "integration"],
+        "interpretation": "The World marks the completion of a cycle. It celebrates achievement, balance, and connection, reminding you that each ending is also a doorway to a new journey."
+    },
+    {
+        "fileName": "22 A ACE OF CUPS",
+        "keywords": ["love", "new feelings", "compassion", "emotional start"],
+        "interpretation": "The Ace of Cups overflows with fresh emotion and gentle beginnings. It suggests the start of new love, kindness, or deep connection, inviting you to open your heart to what feels warm and true."
+    },
+    {
+        "fileName": "23 II TWO OF CUPS",
+        "keywords": ["partnership", "attraction", "union", "connection"],
+        "interpretation": "The Two of Cups shows two people coming together with balance and respect. It often points to romance, friendship, or partnership built on trust and mutual care."
+    },
+    {
+        "fileName": "24 III THREE OF CUPS",
+        "keywords": ["celebration", "friendship", "joy", "community"],
+        "interpretation": "The Three of Cups is about gathering with others to share happiness. It represents friendship, support, and the joy that comes from celebrating together."
+    },
+    {
+        "fileName": "25 IV FOUR OF CUPS",
+        "keywords": ["contemplation", "apathy", "disconnect", "withdrawal"],
+        "interpretation": "The Four of Cups shows someone turning away from what is offered. It suggests boredom, lack of interest, or being lost in thought, reminding you to notice what blessings are nearby."
+    },
+    {
+        "fileName": "26 V FIVE OF CUPS",
+        "keywords": ["loss", "grief", "regret", "disappointment"],
+        "interpretation": "The Five of Cups reflects sadness over what has been lost. It gently reminds you that while grief is real, not all is gone—there are still possibilities waiting to be seen."
+    },
+    {
+        "fileName": "27 VI SIX OF CUPS",
+        "keywords": ["nostalgia", "childhood", "innocence", "memories"],
+        "interpretation": "The Six of Cups is soft and nostalgic, pointing to memories of simpler times. It can suggest reconnecting with kindness, childhood joy, or lessons from the past that still comfort you."
+    },
+    {
+        "fileName": "28 VII SEVEN OF CUPS",
+        "keywords": ["choices", "fantasy", "illusions", "possibilities"],
+        "interpretation": "The Seven of Cups offers many options, some clear and others uncertain. It suggests daydreams, hopes, or temptations, asking you to choose with care and not be lost in illusion."
+    },
+    {
+        "fileName": "29 VIII EIGHT OF CUPS",
+        "keywords": ["leaving", "search", "disappointment", "withdrawal"],
+        "interpretation": "The Eight of Cups shows a quiet turning away. It represents leaving behind what no longer feels fulfilling, and walking toward something deeper and more meaningful."
+    },
+    {
+        "fileName": "30 IX NINE OF CUPS",
+        "keywords": ["satisfaction", "comfort", "gratitude", "wishes"],
+        "interpretation": "The Nine of Cups is often called the wish card. It reflects contentment and comfort, reminding you to enjoy what you have and feel gratitude for the blessings around you."
+    },
+    {
+        "fileName": "31 X TEN OF CUPS",
+        "keywords": ["harmony", "family", "fulfillment", "lasting joy"],
+        "interpretation": "The Ten of Cups shows a picture of happiness and togetherness. It suggests love that has grown strong, lasting bonds, and the warmth of family or chosen community."
+    },
+    {
+        "fileName": "32 P PAGE OF CUPS",
+        "keywords": ["curiosity", "imagination", "playfulness", "sensitivity"],
+        "interpretation": "The Page of Cups is gentle and dreamy, bringing news of love or creativity. It invites you to stay open to surprise, inspiration, and the small wonders of the heart."
+    },
+    {
+        "fileName": "33 KN KNIGHT OF CUPS",
+        "keywords": ["romance", "idealism", "charm", "imagination"],
+        "interpretation": "The Knight of Cups carries messages of love and dreams. He is romantic, sensitive, and sometimes swept away by feelings, reminding you to follow the heart while staying grounded."
+    },
+    {
+        "fileName": "34 Q QUEEN OF CUPS",
+        "keywords": ["compassion", "care", "intuition", "emotional depth"],
+        "interpretation": "The Queen of Cups embodies kindness and deep understanding. She listens with empathy and trusts her intuition, showing the strength that comes from gentleness and emotional wisdom."
+    },
+    {
+        "fileName": "35 K KING OF CUPS",
+        "keywords": ["balance", "compassion", "emotional stability", "wisdom"],
+        "interpretation": "The King of Cups is calm and steady, guiding emotions with balance and care. He represents kindness in leadership and the ability to stay peaceful even in strong emotional tides."
+    },
+    {
+        "fileName": "36 A ACE OF PENTACLES",
+        "keywords": ["opportunity", "prosperity", "stability", "new beginning"],
+        "interpretation": "The Ace of Pentacles shows the start of something solid and promising. It may be a new job, project, or chance for growth, reminding you that small seeds can grow into lasting stability."
+    },
+    {
+        "fileName": "37 II TWO OF PENTACLES",
+        "keywords": ["balance", "adaptability", "decisions", "flexibility"],
+        "interpretation": "The Two of Pentacles is about keeping balance while juggling life’s ups and downs. It suggests adaptability, finding rhythm in change, and learning to flow with shifting priorities."
+    },
+    {
+        "fileName": "38 III THREE OF PENTACLES",
+        "keywords": ["teamwork", "learning", "building", "skill"],
+        "interpretation": "The Three of Pentacles highlights cooperation and shared effort. It points to growth through teamwork, learning from others, and building something stronger together than alone."
+    },
+    {
+        "fileName": "39 IV FOUR OF PENTACLES",
+        "keywords": ["control", "security", "holding on", "possession"],
+        "interpretation": "The Four of Pentacles shows holding tightly to what you own. It reflects a desire for safety and control, but also warns against closing off too much from generosity and trust."
+    },
+    {
+        "fileName": "40 V FIVE OF PENTACLES",
+        "keywords": ["hardship", "loss", "struggle", "support"],
+        "interpretation": "The Five of Pentacles shows challenge and difficulty, often around money or health. Still, it reminds you that help is nearby, and even in hard times, support and kindness can be found."
+    },
+    {
+        "fileName": "41 VI SIX OF PENTACLES",
+        "keywords": ["generosity", "charity", "balance", "sharing"],
+        "interpretation": "The Six of Pentacles is about giving and receiving. It suggests kindness, fairness, and the flow of support, reminding you that generosity builds balance for everyone involved."
+    },
+    {
+        "fileName": "42 VII SEVEN OF PENTACLES",
+        "keywords": ["patience", "assessment", "long-term view", "growth"],
+        "interpretation": "The Seven of Pentacles shows a pause to look at progress. It is about patience, effort, and steady growth, reminding you that results take time and care to fully ripen."
+    },
+    {
+        "fileName": "43 VIII EIGHT OF PENTACLES",
+        "keywords": ["practice", "skill", "dedication", "craft"],
+        "interpretation": "The Eight of Pentacles highlights steady work and practice. It speaks of learning by doing, sharpening your craft, and finding pride in patient dedication."
+    },
+    {
+        "fileName": "44 IX NINE OF PENTACLES",
+        "keywords": ["independence", "comfort", "success", "self-reliance"],
+        "interpretation": "The Nine of Pentacles shows peace and satisfaction earned through effort. It reflects comfort, independence, and enjoying the rewards of your own work."
+    },
+    {
+        "fileName": "45 X TEN OF PENTACLES",
+        "keywords": ["legacy", "family", "wealth", "tradition"],
+        "interpretation": "The Ten of Pentacles represents lasting security and support across generations. It points to family, tradition, and the comfort that comes from a stable foundation built over time."
+    },
+    {
+        "fileName": "46 P PAGE OF PENTACLES",
+        "keywords": ["learning", "opportunity", "focus", "curiosity"],
+        "interpretation": "The Page of Pentacles brings news of study, growth, or new opportunity. It reflects curiosity, the first steps in building knowledge, and the promise of steady progress."
+    },
+    {
+        "fileName": "47 KN KNIGHT OF PENTACLES",
+        "keywords": ["hard work", "responsibility", "routine", "loyalty"],
+        "interpretation": "The Knight of Pentacles is careful, steady, and dependable. He shows progress through patience and responsibility, reminding you that persistence builds results over time."
+    },
+    {
+        "fileName": "48 Q QUEEN OF PENTACLES",
+        "keywords": ["nurturing", "practicality", "comfort", "care"],
+        "interpretation": "The Queen of Pentacles balances warmth with practicality. She represents care for both home and work, showing that stability and kindness can grow side by side."
+    },
+    {
+        "fileName": "49 K KING OF PENTACLES",
+        "keywords": ["security", "abundance", "leadership", "success"],
+        "interpretation": "The King of Pentacles shows mastery of stability and abundance. He represents leadership through responsibility, generosity, and building a secure environment for others."
+    },
+    {
+        "fileName": "50 A ACE OF SWORDS",
+        "keywords": ["clarity", "truth", "breakthrough", "new idea"],
+        "interpretation": "The Ace of Swords cuts through confusion, bringing clear thought and new understanding. It represents fresh ideas and honest truth, showing the power of a sharp mind and direct insight."
+    },
+    {
+        "fileName": "51 II TWO OF SWORDS",
+        "keywords": ["decision", "balance", "stalemate", "choices"],
+        "interpretation": "The Two of Swords shows a moment of pause, where a decision must be made. It reflects balance and careful thought, reminding you that clarity comes when you face what you’ve been avoiding."
+    },
+    {
+        "fileName": "52 III THREE OF SWORDS",
+        "keywords": ["heartbreak", "loss", "pain", "truth"],
+        "interpretation": "The Three of Swords speaks of sadness and broken trust. While painful, it also shows the healing power of honesty, and that even through loss, the heart can grow stronger."
+    },
+    {
+        "fileName": "53 IV FOUR OF SWORDS",
+        "keywords": ["rest", "pause", "recovery", "reflection"],
+        "interpretation": "The Four of Swords is a gentle call for rest. It suggests taking time away from stress or conflict to recover, reflect, and regain your inner balance."
+    },
+    {
+        "fileName": "54 V FIVE OF SWORDS",
+        "keywords": ["conflict", "ego", "loss", "tension"],
+        "interpretation": "The Five of Swords shows conflict where no one truly wins. It warns against pride or hollow victory, reminding you to seek understanding instead of holding onto resentment."
+    },
+    {
+        "fileName": "55 VI SIX OF SWORDS",
+        "keywords": ["transition", "moving on", "healing", "journey"],
+        "interpretation": "The Six of Swords shows a quiet journey away from difficulty. It represents healing, moving forward, and leaving behind what no longer serves you, even if the path feels uncertain."
+    },
+    {
+        "fileName": "56 VII SEVEN OF SWORDS",
+        "keywords": ["strategy", "deception", "secrecy", "cleverness"],
+        "interpretation": "The Seven of Swords suggests hidden actions or plans kept in secret. It can reflect careful strategy, but also warns against dishonesty, reminding you that truth brings lasting strength."
+    },
+    {
+        "fileName": "57 VIII EIGHT OF SWORDS",
+        "keywords": ["restriction", "fear", "trapped", "limitation"],
+        "interpretation": "The Eight of Swords shows feeling stuck or limited. It reminds you that many of these bonds come from fear or doubt, and freedom begins when you see that the way forward is still open."
+    },
+    {
+        "fileName": "58 IX NINE OF SWORDS",
+        "keywords": ["anxiety", "worry", "fear", "guilt"],
+        "interpretation": "The Nine of Swords reflects sleepless nights filled with worry. It shows the weight of fear and regret, encouraging you to face your thoughts gently and seek support where needed."
+    },
+    {
+        "fileName": "59 X TEN OF SWORDS",
+        "keywords": ["endings", "betrayal", "collapse", "release"],
+        "interpretation": "The Ten of Swords shows a painful ending, when things feel broken beyond repair. Yet it also reminds you that after the darkest night, the light of a new dawn begins to rise."
+    },
+    {
+        "fileName": "60 P PAGE OF SWORDS",
+        "keywords": ["curiosity", "learning", "alertness", "ideas"],
+        "interpretation": "The Page of Swords is eager to know more. It speaks of curiosity, questions, and new thoughts, reminding you to stay open and alert as you learn and explore."
+    },
+    {
+        "fileName": "61 KN KNIGHT OF SWORDS",
+        "keywords": ["action", "speed", "determination", "impulsiveness"],
+        "interpretation": "The Knight of Swords charges forward with strong energy and determination. He brings quick action and bold ideas, but also cautions against rushing without thought."
+    },
+    {
+        "fileName": "62 Q QUEEN OF SWORDS",
+        "keywords": ["clarity", "truth", "independence", "wisdom"],
+        "interpretation": "The Queen of Swords is clear-minded and fair. She values honesty and wisdom, encouraging you to see things as they are and to speak with both truth and compassion."
+    },
+    {
+        "fileName": "63 K KING OF SWORDS",
+        "keywords": ["authority", "logic", "judgment", "leadership"],
+        "interpretation": "The King of Swords leads with logic and clarity. He shows the strength of wise decisions and fair judgment, reminding you that true authority comes from balanced and thoughtful leadership."
+    },
+    {
+        "fileName": "64 A ACE OF WANDS",
+        "keywords": ["inspiration", "energy", "new start", "creativity"],
+        "interpretation": "The Ace of Wands bursts with fresh energy and ideas. It signals the start of something exciting, encouraging you to follow your spark and begin creating with passion."
+    },
+    {
+        "fileName": "65 II TWO OF WANDS",
+        "keywords": ["planning", "vision", "choice", "future"],
+        "interpretation": "The Two of Wands shows looking ahead and making plans. It suggests stepping beyond comfort, exploring new paths, and shaping the future with clear intention."
+    },
+    {
+        "fileName": "66 III THREE OF WANDS",
+        "keywords": ["expansion", "progress", "opportunity", "confidence"],
+        "interpretation": "The Three of Wands represents growth and moving forward. It speaks of opportunities on the horizon and the confidence to take steps toward broader goals."
+    },
+    {
+        "fileName": "67 IV FOUR OF WANDS",
+        "keywords": ["celebration", "home", "harmony", "community"],
+        "interpretation": "The Four of Wands shows joy and stability shared with others. It often points to celebrations, milestones, or a sense of home where you feel welcome and supported."
+    },
+    {
+        "fileName": "68 V FIVE OF WANDS",
+        "keywords": ["conflict", "competition", "challenge", "struggle"],
+        "interpretation": "The Five of Wands reflects clashing energies or competition. It may feel messy, but it also encourages learning how to work with differences and find new ways through challenges."
+    },
+    {
+        "fileName": "69 VI SIX OF WANDS",
+        "keywords": ["victory", "recognition", "success", "confidence"],
+        "interpretation": "The Six of Wands shows triumph and being recognized for your efforts. It reflects progress, pride, and the joy of reaching success after hard work."
+    },
+    {
+        "fileName": "70 VII SEVEN OF WANDS",
+        "keywords": ["defense", "perseverance", "challenge", "standing firm"],
+        "interpretation": "The Seven of Wands is about holding your ground. It shows courage in standing up for what you believe in, even when faced with pressure or opposition."
+    },
+    {
+        "fileName": "71 VIII EIGHT OF WANDS",
+        "keywords": ["movement", "speed", "progress", "momentum"],
+        "interpretation": "The Eight of Wands represents swift movement and momentum. It suggests that events are falling into place quickly, and progress comes when you flow with the pace of change."
+    },
+    {
+        "fileName": "72 IX NINE OF WANDS",
+        "keywords": ["resilience", "persistence", "strength", "defense"],
+        "interpretation": "The Nine of Wands shows strength after struggle. It reminds you to stand tall, even when tired, and that your resilience will carry you through challenges."
+    },
+    {
+        "fileName": "73 X TEN OF WANDS",
+        "keywords": ["burden", "responsibility", "hard work", "strain"],
+        "interpretation": "The Ten of Wands reflects carrying heavy responsibilities. It suggests hard work and pressure, but also the need to release what weighs too much and focus on what truly matters."
+    },
+    {
+        "fileName": "74 P PAGE OF WANDS",
+        "keywords": ["exploration", "curiosity", "energy", "discovery"],
+        "interpretation": "The Page of Wands is curious and eager to explore. It points to trying new things with excitement and discovering the world with fresh eyes and energy."
+    },
+    {
+        "fileName": "75 KN KNIGHT OF WANDS",
+        "keywords": ["passion", "adventure", "impulsiveness", "movement"],
+        "interpretation": "The Knight of Wands charges ahead with fiery energy. He is adventurous and bold, bringing excitement, though sometimes rushing without full thought."
+    },
+    {
+        "fileName": "76 Q QUEEN OF WANDS",
+        "keywords": ["confidence", "warmth", "independence", "creativity"],
+        "interpretation": "The Queen of Wands is radiant and confident, full of life and charm. She encourages you to trust yourself, express creativity, and lead with warmth and openness."
+    },
+    {
+        "fileName": "77 K KING OF WANDS",
+        "keywords": ["leadership", "vision", "inspiration", "authority"],
+        "interpretation": "The King of Wands is a leader with vision and drive. He represents strong guidance, big ideas, and the ability to inspire others while staying true to personal goals."
+    }
+  ]
+  

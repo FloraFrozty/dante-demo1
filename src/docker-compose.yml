@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: src/backend/dockerFile
+    ports:
+      - 8080:8080
+    volumes:
+      - dante:/volume-data
+    networks:
+      - app-network
+  app:
+    build:
+      context: ..
+      dockerfile: src/app/dockerFile
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    volumes:
+      - dante:/volume-data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dante:
+    external: true
+    name: dante

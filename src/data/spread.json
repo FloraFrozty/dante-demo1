@@ -1,0 +1,38 @@
+{
+  "fileName": "spread_instructions",
+  "entries": [
+    {
+      "spread_type": "three_card_basic",
+      "name": "Past–Present–Future Spread",
+      "purpose": "A simple 3-card reading providing linear narrative insight into temporal flow.",
+      "instruction": "Interpret each card in sequence. The first represents past influences, the second reflects current situation or emotional state, and the third shows potential outcome or guidance. Prioritize connections between cards, noticing transitions or contrasts. If the question relates to decision-making, emphasize lessons learned and possible future direction.",
+      "notes": "Focus on storytelling through time. Highlight how the past card shapes the present, and how present choices affect the future. Avoid treating cards as isolated."
+    },
+    {
+      "spread_type": "three_card_cause_effect",
+      "name": "Situation–Challenge–Outcome Spread",
+      "purpose": "A three-card layout centered on problem-solving and consequences.",
+      "instruction": "Card one shows the core situation or emotional theme. Card two identifies factors causing tension or growth. Card three reveals result or impact, weighted more heavily in interpretation. Stress the dynamic between the first two cards leading to the last.",
+      "notes": "Use when the user seeks explanation or resolution. The third card carries the decisive tone."
+    },
+    {
+      "spread_type": "celtic_cross",
+      "name": "Celtic Cross Spread",
+      "purpose": "A complex 10-card layout revealing multidimensional insight on the querent’s situation, inner and outer influences, and potential paths.",
+      "instruction": "Follow traditional order: (1) Present situation, (2) Immediate challenge, (3) Foundation/root cause, (4) Past influence, (5) Possible outcome, (6) Near future, (7) Self-perception, (8) Environment or others, (9) Hopes/fears, (10) Final outcome. Maintain narrative coherence while recognizing intersections between internal and external positions. Summarize key tension and advice.",
+      "notes": "Designed for deep readings. Model should prioritize contextual linkage and not simply list meanings per card."
+    },
+    {
+      "spread_type": "yesno",
+      "name": "Yes, No, Maybe",
+      "purpose": "A focused one-card draw that offers a directional answer—yes, no, or maybe—based on the overall tone, symbolism, and energy of the card. It’s designed for quick clarity while still acknowledging nuance.",
+      "instruction": "Draw one card. Interpret it through its core mood, elemental nature, imagery, and traditional meaning to determine whether the situation leans toward Yes, No, or remains conditional or uncertain (Maybe). Avoid literal or overly simplistic interpretations—let the card’s attitude, direction, and emotional weight guide the answer. If the card presents mixed messages, emphasize the nuance rather than forcing a binary outcome.",
+      "notes": "Use this only when the question genuinely supports a yes/no format. If the card suggests complexity or contingencies, acknowledge them so the querent can understand the conditions shaping the result."
+    }
+  ],
+  "general_guidelines": {
+    "embedding_intent": "Each spread instruction should serve as a semantic anchor for retrieval based on user-selected spread type.",
+    "retrieval_tip": "When searching, query by 'spread type' or contextual keywords like 'past-present-future' or 'Celtic cross'.",
+    "model_behavior": "Upon retrieval, the model should merge the spread logic with individual card meanings to craft cohesive interpretations without restating the entire rule each time."
+  }
+}

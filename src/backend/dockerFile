@@ -1,0 +1,15 @@
+FROM node:22
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY src/backend/ ./src/backend/
+COPY tsconfig.json ./
+COPY server.tsconfig.json ./
+
+EXPOSE 8080
+
+CMD ["npm", "run", "dev:be"]

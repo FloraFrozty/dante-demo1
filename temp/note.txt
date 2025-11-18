@@ -1,0 +1,28 @@
+
+historyThread: 
+body: {
+    object: 'list', 
+    data: Array(41), 
+    first_id: 'msg_dt0BKYeZj2TrbHMo6yVQFqYC', 
+    last_id: 'msg_XjLNTkwm3sO0tkE8aMbDC2Ad', 
+    has_more: false}
+data: Array(41)
+    0: 
+        assistant_id: null
+        attachments:[]
+        content: 
+            Array(1)
+                0: 
+                    text: {
+                        value: 'Then I will send the third message, but you will s…he upper and not arranged in chronological order.', annotations: Array(0)}
+                    type: "text"
+        created_at: 1742140113
+        id: "msg_dt0BKYeZj2TrbHMo6yVQFqYC"
+        metadata: {}
+        object: "thread.message"
+        role: "user"
+        run_id: null
+        thread_id: "thread_9QoK6iboxmWVaGdjcO7a1RbC"
+has_more: false
+options: {method: 'get', path: '/threads/thread_9QoK6iboxmWVaGdjcO7a1RbC/messages', query: {…}, headers: {…}}
+response: {size: 0, timeout: 0}

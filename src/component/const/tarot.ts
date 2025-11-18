@@ -1,0 +1,32 @@
+import type { SpreadMeta } from '@/component/types/tarot';
+
+export const CARD_NAMES: string[] = [
+  '0 O THE FOOL','1 I THE MAGICIAN','2 II THE HIGH PRIESTESS','3 III THE EMPRESS','4 IV THE EMPEROR',
+  '5 V THE HIEROPHANT','6 VI THE LOVERS','7 VII THE CHARIOT','8 VIII STRENGTH','9 IX THE HERMIT',
+  '10 X WHEEL OF FORTUNE','11 XI JUSTICE','12 XII THE HANGED MAN','13 XIII DEATH','14 XIV TEMPERANCE',
+  '15 XV THE DEVIL','16 XVI THE TOWER','17 XVII THE STAR','18 XVIII THE MOON','19 XIX THE SUN',
+  '20 XX JUDGEMENT','21 XXI THE WORLD',
+  '22 A ACE OF CUPS','23 II TWO OF CUPS','24 III THREE OF CUPS','25 IV FOUR OF CUPS','26 V FIVE OF CUPS',
+  '27 VI SIX OF CUPS','28 VII SEVEN OF CUPS','29 VIII EIGHT OF CUPS','30 IX NINE OF CUPS','31 X TEN OF CUPS',
+  '32 P PAGE OF CUPS','33 KN KNIGHT OF CUPS','34 Q QUEEN OF CUPS','35 K KING OF CUPS',
+  '36 A ACE OF PENTACLES','37 II TWO OF PENTACLES','38 III THREE OF PENTACLES','39 IV FOUR OF PENTACLES',
+  '40 V FIVE OF PENTACLES','41 VI SIX OF PENTACLES','42 VII SEVEN OF PENTACLES','43 VIII EIGHT OF PENTACLES',
+  '44 IX NINE OF PENTACLES','45 X TEN OF PENTACLES','46 P PAGE OF PENTACLES','47 KN KNIGHT OF PENTACLES',
+  '48 Q QUEEN OF PENTACLES','49 K KING OF PENTACLES',
+  '50 A ACE OF SWORDS','51 II TWO OF SWORDS','52 III THREE OF SWORDS','53 IV FOUR OF SWORDS',
+  '54 V FIVE OF SWORDS','55 VI SIX OF SWORDS','56 VII SEVEN OF SWORDS','57 VIII EIGHT OF SWORDS',
+  '58 IX NINE OF SWORDS','59 X TEN OF SWORDS','60 P PAGE OF SWORDS','61 KN KNIGHT OF SWORDS',
+  '62 Q QUEEN OF SWORDS','63 K KING OF SWORDS',
+  '64 A ACE OF WANDS','65 II TWO OF WANDS','66 III THREE OF WANDS','67 IV FOUR OF WANDS',
+  '68 V FIVE OF WANDS','69 VI SIX OF WANDS','70 VII SEVEN OF WANDS','71 VIII EIGHT OF WANDS',
+  '72 IX NINE OF WANDS','73 X TEN OF WANDS','74 P PAGE OF WANDS','75 KN KNIGHT OF WANDS',
+  '76 Q QUEEN OF WANDS','77 K KING OF WANDS'
+];
+
+export const SPREAD_META: Record<NonNullable<import('@/component/types/tarot').SpreadType>, SpreadMeta> = {
+  daily:                { picks: 1,  requiresQuestion: false, label: 'Daily Vibes' },
+  yesno:                { picks: 3,  requiresQuestion: false, label: 'Yes.. No.. Or Maybe?' },
+  celtic_cross:         { picks: 10, requiresQuestion: true,  label: 'Celtic Cross Tarot Reading' },
+  three_card_basic:     { picks: 3,  requiresQuestion: true,  label: 'Past, Present, and Future' },
+  three_card_cause_effect: { picks: 3, requiresQuestion: true, label: 'Cause & Result' }
+};
