@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 axios.defaults.withCredentials = true;
 // import Matter from 'matter-js';
 import { motion } from "motion/react";
@@ -11,49 +11,50 @@ const URL_CONFIG = {
 };
 
 export default function Home() {
-  const [input, setInput] = useState('');
-  const [disable, setDisable] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [loadingMessage, setLoadingMessage] = useState('');
+  // const [input, setInput] = useState('');
+  // const [disable, setDisable] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [progress, setProgress] = useState(0);
+  // const [loadingMessage, setLoadingMessage] = useState('');
   const finalInterval = useRef<number | undefined>(undefined);
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  // const inputRef = useRef<HTMLInputElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-
-  const hasSnapped = useRef(false);      
+     
   const nextRef = useRef<HTMLDivElement>(null);
   // preset messages for milestones
-  const milestones = [
-    { pct: 10, msg: 'Warming up engines…' },
-    { pct: 30, msg: 'Verifying inputs…' },
-    { pct: 50, msg: 'Building response…' },
-    { pct: 70, msg: 'Fetching history…' },
-    { pct: 85, msg: 'Applying narrative…' },
-  ];
-  const finalMessages = [
-    'Almost there…', 'Putting on finishing touches…', 'Wrapping up…', 'One sec more…'
-  ];
 
   // update loadingMessage based on progress
-  useEffect(() => {
-    if (!loading) return;
-    clearInterval(finalInterval.current);
+  // useEffect(() => {
 
-    if (progress < 100) {
-      const { msg } = milestones.find(m => progress <= m.pct) || milestones[milestones.length - 1];
-      setLoadingMessage(msg);
-    } else {
-      // cycle final messages every 2s
-      setLoadingMessage(finalMessages[0]);
-      finalInterval.current = window.setInterval(() => {
-        setLoadingMessage(
-          finalMessages[Math.floor(Math.random() * finalMessages.length)]
-        );
-      }, 5000);
-    }
-  }, [progress, loading]);
+  //   const milestones = [
+  //     { pct: 10, msg: 'Warming up engines…' },
+  //     { pct: 30, msg: 'Verifying inputs…' },
+  //     { pct: 50, msg: 'Building response…' },
+  //     { pct: 70, msg: 'Fetching history…' },
+  //     { pct: 85, msg: 'Applying narrative…' },
+  //   ];
+  //   const finalMessages = [
+  //     'Almost there…', 'Putting on finishing touches…', 'Wrapping up…', 'One sec more…'
+  //   ];
+    
+  //   if (!loading) return;
+  //   clearInterval(finalInterval.current);
+
+  //   if (progress < 100) {
+  //     const { msg } = milestones.find(m => progress <= m.pct) || milestones[milestones.length - 1];
+  //     setLoadingMessage(msg);
+  //   } else {
+  //     // cycle final messages every 2s
+  //     setLoadingMessage(finalMessages[0]);
+  //     finalInterval.current = window.setInterval(() => {
+  //       setLoadingMessage(
+  //         finalMessages[Math.floor(Math.random() * finalMessages.length)]
+  //       );
+  //     }, 5000);
+  //   }
+  // }, [progress, loading]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,39 +71,68 @@ export default function Home() {
   // cleanup interval on unmount
   useEffect(() => () => clearInterval(finalInterval.current), []);
 
+  // useEffect(() => {
+  //   const verifyUser = async () => {
+  //     try {
+  //       await axios.get(`${URL_CONFIG.url}/user/verify`, { withCredentials: true });
+  //     } catch (error: any) {
+  //       if (error.response?.status === 403) {
+  //         // user exists but not approved → send to queue page
+  //         window.location.href = "/queue";
+  //       } else if (error.response?.status === 401) {
+  //         window.location.href = `${URL_CONFIG.url}/auth0/login`;
+  //         return;
+  //       } else {
+  //         console.error("Verification error:", error);
+  //       }
+  //     }
+  //   };
+  
+  //   verifyUser();
+  // }, []);
+
   useEffect(() => {
     const verifyUser = async () => {
       try {
         await axios.get(`${URL_CONFIG.url}/user/verify`, { withCredentials: true });
-      } catch (error: any) {
-        if (error.response?.status === 403) {
-          // user exists but not approved → send to queue page
-          window.location.href = "/queue";
-        } else if (error.response?.status === 401) {
-          window.location.href = `${URL_CONFIG.url}/auth0/login`;
-          return;
+      } catch (error: unknown) {
+        // Narrow the unknown error safely
+        if (axios.isAxiosError(error)) {
+          const axiosErr = error as AxiosError;
+          if (axiosErr.response?.status === 403) {
+            window.location.href = "/queue";
+          } else if (axiosErr.response?.status === 401) {
+            window.location.href = `${URL_CONFIG.url}/auth0/login`;
+            return;
+          } else {
+            console.error("Verification error:", axiosErr);
+          }
+        } else if (error instanceof Error) {
+          // Non-Axios standard Error
+          console.error("Unexpected error:", error.message);
         } else {
-          console.error("Verification error:", error);
+          // Fallback for anything else
+          console.error("Unknown error:", error);
         }
       }
     };
-  
+
     verifyUser();
-  }, []);   
+  }, []);
 
   // capture global key presses
-  useEffect(() => {
-    const handleGlobalKey = (e: KeyboardEvent) => {
-      if (disable || loading || e.ctrlKey || e.metaKey || e.altKey) return;
-      if (e.key.length === 1) {
-        e.preventDefault();
-        inputRef.current?.focus();
-        setInput(prev => prev + e.key);
-      }
-    };
-    window.addEventListener('keydown', handleGlobalKey);
-    return () => window.removeEventListener('keydown', handleGlobalKey);
-  }, [disable, loading]);
+  // useEffect(() => {
+  //   const handleGlobalKey = (e: KeyboardEvent) => {
+  //     if (disable || loading || e.ctrlKey || e.metaKey || e.altKey) return;
+  //     if (e.key.length === 1) {
+  //       e.preventDefault();
+  //       inputRef.current?.focus();
+  //       setInput(prev => prev + e.key);
+  //     }
+  //   };
+  //   window.addEventListener('keydown', handleGlobalKey);
+  //   return () => window.removeEventListener('keydown', handleGlobalKey);
+  // }, [disable, loading]);
 
   // Matter.js setup
   // useEffect(() => {
@@ -219,158 +249,158 @@ export default function Home() {
   //   }
   // }, []);
 
-  const handleSubmit = async () => {
-    if (!input.trim()) return;
-    console.log('→ handleSubmit start, input:', input);
-    setLoading(true);
-    setProgress(10);
+  // const handleSubmit = async () => {
+  //   if (!input.trim()) return;
+  //   console.log('→ handleSubmit start, input:', input);
+  //   setLoading(true);
+  //   setProgress(10);
   
-    try {
-      const axiosOpts = { timeout: 60000 };
+  //   try {
+  //     const axiosOpts = { timeout: 60000 };
   
-      // 1️⃣ Guardrail validation
-      console.log('→ Step 1: calling /agent/guardrailInput');
-      const guardRes = await axios.post<{ guardrail: string }>(
-        `${URL_CONFIG.url}/agent/guardrailInput`,
-        { input },
-        { ...axiosOpts, timeout: 15000, withCredentials: true  },
-      );
-      console.log('← /agent/guardrailInput response:', guardRes.data);
-      setProgress(30);
-      if (guardRes.data.guardrail === 'fail') {
-        console.log('‼ Guardrail failed, disabling input');
-        setDisable(true);
-        setInput('');
-        setLoading(false);
-        return;
-      }
+  //     // 1️⃣ Guardrail validation
+  //     console.log('→ Step 1: calling /agent/guardrailInput');
+  //     const guardRes = await axios.post<{ guardrail: string }>(
+  //       `${URL_CONFIG.url}/agent/guardrailInput`,
+  //       { input },
+  //       { ...axiosOpts, timeout: 15000, withCredentials: true  },
+  //     );
+  //     console.log('← /agent/guardrailInput response:', guardRes.data);
+  //     setProgress(30);
+  //     if (guardRes.data.guardrail === 'fail') {
+  //       console.log('‼ Guardrail failed, disabling input');
+  //       setDisable(true);
+  //       setInput('');
+  //       setLoading(false);
+  //       return;
+  //     }
   
-      // 2️⃣ Retrieve _one_ thread ID
-      console.log('→ Step 2: calling GET /assistant/thread/retrieve');
-      const prevRes = await axios.get<{ threadID: string }>(
-        `${URL_CONFIG.url}/assistant/thread/retrieve`,
-        { ...axiosOpts, timeout: 15000, withCredentials: true }
-      );
-      console.log('← GET /assistant/thread/retrieve response:', prevRes.data);
-      setProgress(50);
-      const prevId = prevRes.data.threadID;
-      console.log('→ Prev threadID:', prevId);
+  //     // 2️⃣ Retrieve _one_ thread ID
+  //     console.log('→ Step 2: calling GET /assistant/thread/retrieve');
+  //     const prevRes = await axios.get<{ threadID: string }>(
+  //       `${URL_CONFIG.url}/assistant/thread/retrieve`,
+  //       { ...axiosOpts, timeout: 15000, withCredentials: true }
+  //     );
+  //     console.log('← GET /assistant/thread/retrieve response:', prevRes.data);
+  //     setProgress(50);
+  //     const prevId = prevRes.data.threadID;
+  //     console.log('→ Prev threadID:', prevId);
   
-      // Update the previous thread
-      console.log('→ Step 2b: calling POST /assistant/thread/update', { prevId });
-      const updatePrevRes = await axios.post(
-        `${URL_CONFIG.url}/assistant/thread/update`,
-        { threadID: prevId, readJSON: JSON.stringify({ threadID: prevId }), withCredentials: true  },
-        axiosOpts
-      );
-      console.log('← POST /assistant/thread/update response:', updatePrevRes.data);
+  //     // Update the previous thread
+  //     console.log('→ Step 2b: calling POST /assistant/thread/update', { prevId });
+  //     const updatePrevRes = await axios.post(
+  //       `${URL_CONFIG.url}/assistant/thread/update`,
+  //       { threadID: prevId, readJSON: JSON.stringify({ threadID: prevId }), withCredentials: true  },
+  //       axiosOpts
+  //     );
+  //     console.log('← POST /assistant/thread/update response:', updatePrevRes.data);
   
-      // 3️⃣ Create narrative for PREVIOUS thread
-      console.log('→ Step 3: calling POST /agent/narrative', { prevId });
-      const narrRes = await axios.post(
-        `${URL_CONFIG.url}/agent/narrative`,
-        { threadID: prevId, withCredentials: true  },
-        axiosOpts
-      );
-      console.log('← POST /agent/narrative response:', narrRes.data);
-      setProgress(70);
+  //     // 3️⃣ Create narrative for PREVIOUS thread
+  //     console.log('→ Step 3: calling POST /agent/narrative', { prevId });
+  //     const narrRes = await axios.post(
+  //       `${URL_CONFIG.url}/agent/narrative`,
+  //       { threadID: prevId, withCredentials: true  },
+  //       axiosOpts
+  //     );
+  //     console.log('← POST /agent/narrative response:', narrRes.data);
+  //     setProgress(70);
   
-      // 4️⃣ Vector‐store housekeeping
-      console.log('→ Step 4: calling POST /vector/files/list');
-      const listRes = await axios.post<{ files: { id: string }[] }>(
-        `${URL_CONFIG.url}/vector/files/list`,
-        { withCredentials: true },
-        axiosOpts
-      );
-      console.log('← POST /vector/files/list response:', listRes.data);
-      setProgress(75);
+  //     // 4️⃣ Vector‐store housekeeping
+  //     console.log('→ Step 4: calling POST /vector/files/list');
+  //     const listRes = await axios.post<{ files: { id: string }[] }>(
+  //       `${URL_CONFIG.url}/vector/files/list`,
+  //       { withCredentials: true },
+  //       axiosOpts
+  //     );
+  //     console.log('← POST /vector/files/list response:', listRes.data);
+  //     setProgress(75);
   
-      console.log('→ Deleting files:', listRes.data.files.map(f => f.id));
-      await Promise.all(
-        listRes.data.files.map(f =>
-          axios.post(
-            `${URL_CONFIG.url}/files/delete`,
-            { fileID: f.id },
-            axiosOpts
-          )
-        )
-      );
-      console.log('← All vector files deleted');
-      setProgress(80);
+  //     console.log('→ Deleting files:', listRes.data.files.map(f => f.id));
+  //     await Promise.all(
+  //       listRes.data.files.map(f =>
+  //         axios.post(
+  //           `${URL_CONFIG.url}/files/delete`,
+  //           { fileID: f.id },
+  //           axiosOpts
+  //         )
+  //       )
+  //     );
+  //     console.log('← All vector files deleted');
+  //     setProgress(80);
   
-      // Integrity‐check uploads & attaches
-      console.log('→ Step 4b: uploading profile.json');
-      const up1 = await axios.post(
-        `${URL_CONFIG.url}/files/upload`,
-        { filePath: '/temp/profile.json', withCredentials: true  },
-        axiosOpts
-      );
-      console.log('← profile.json upload response:', up1.data);
+  //     // Integrity‐check uploads & attaches
+  //     console.log('→ Step 4b: uploading profile.json');
+  //     const up1 = await axios.post(
+  //       `${URL_CONFIG.url}/files/upload`,
+  //       { filePath: '/temp/profile.json', withCredentials: true  },
+  //       axiosOpts
+  //     );
+  //     console.log('← profile.json upload response:', up1.data);
   
-      console.log('→ uploading threadID.json');
-      const up2 = await axios.post(
-        `${URL_CONFIG.url}/files/upload`,
-        { filePath: '/temp/threadID.json', withCredentials: true  },
-        axiosOpts
-      );
-      // console.log('← threadID.json upload response:', up2.data);
+  //     console.log('→ uploading threadID.json');
+  //     const up2 = await axios.post(
+  //       `${URL_CONFIG.url}/files/upload`,
+  //       { filePath: '/temp/threadID.json', withCredentials: true  },
+  //       axiosOpts
+  //     );
+  //     // console.log('← threadID.json upload response:', up2.data);
   
-      // console.log('→ attaching profile.json to vector');
-      await axios.post(
-        `${URL_CONFIG.url}/vector/files/attach`,
-        { fileID: up1.data.result.id, withCredentials: true },
-        axiosOpts
-      );
-      // console.log('← profile.json attached');
+  //     // console.log('→ attaching profile.json to vector');
+  //     await axios.post(
+  //       `${URL_CONFIG.url}/vector/files/attach`,
+  //       { fileID: up1.data.result.id, withCredentials: true },
+  //       axiosOpts
+  //     );
+  //     // console.log('← profile.json attached');
   
-      setProgress(85);
+  //     setProgress(85);
   
-      // console.log('→ attaching threadID.json to vector');
-      await axios.post(
-        `${URL_CONFIG.url}/vector/files/attach`,
-        { fileID: up2.data.result.id, withCredentials: true },
-        axiosOpts
-      );
-      // console.log('← threadID.json attached');
-      setProgress(90);
+  //     // console.log('→ attaching threadID.json to vector');
+  //     await axios.post(
+  //       `${URL_CONFIG.url}/vector/files/attach`,
+  //       { fileID: up2.data.result.id, withCredentials: true },
+  //       axiosOpts
+  //     );
+  //     // console.log('← threadID.json attached');
+  //     setProgress(90);
   
-      // 5️⃣ Create NEW assistant thread
-      // console.log('→ Step 5: calling POST /assistant/run/create');
-      const createRes = await axios.post(
-        `${URL_CONFIG.url}/assistant/run/create`,
-        { input, withCredentials: true  },
-        axiosOpts
-      );
-      // console.log('← POST /assistant/run/create response:', createRes.data);
-      setProgress(95);
-      const newID = createRes.data.thread.thread_id;
-      // console.log('→ New threadID:', newID);
+  //     // 5️⃣ Create NEW assistant thread
+  //     // console.log('→ Step 5: calling POST /assistant/run/create');
+  //     const createRes = await axios.post(
+  //       `${URL_CONFIG.url}/assistant/run/create`,
+  //       { input, withCredentials: true  },
+  //       axiosOpts
+  //     );
+  //     // console.log('← POST /assistant/run/create response:', createRes.data);
+  //     setProgress(95);
+  //     const newID = createRes.data.thread.thread_id;
+  //     // console.log('→ New threadID:', newID);
   
-      // console.log('→ updating new thread');
-      const updateNewRes = await axios.post(
-        `${URL_CONFIG.url}/assistant/thread/update`,
-        { threadID: newID, readJSON: JSON.stringify({ threadID: newID }), withCredentials: true },
-        axiosOpts
-      );
-      // console.log('← POST /assistant/thread/update response:', updateNewRes.data);
-      setProgress(98);
+  //     // console.log('→ updating new thread');
+  //     const updateNewRes = await axios.post(
+  //       `${URL_CONFIG.url}/assistant/thread/update`,
+  //       { threadID: newID, readJSON: JSON.stringify({ threadID: newID }), withCredentials: true },
+  //       axiosOpts
+  //     );
+  //     // console.log('← POST /assistant/thread/update response:', updateNewRes.data);
+  //     setProgress(98);
   
-      // ✅ Done — redirect
-      // console.log('✅ All steps complete, redirecting to /chat');
-      setProgress(100);
-      setTimeout(() => {
-        window.location.href = '/chat';
-      }, 3000);
+  //     // ✅ Done — redirect
+  //     // console.log('✅ All steps complete, redirecting to /chat');
+  //     setProgress(100);
+  //     setTimeout(() => {
+  //       window.location.href = '/chat';
+  //     }, 3000);
   
-    } catch (err) {
-      console.error('handleSubmit error:', err);
-      setLoading(false);
-    }
-  };
+  //   } catch (err) {
+  //     console.error('handleSubmit error:', err);
+  //     setLoading(false);
+  //   }
+  // };
   
   
 
-  const restore = () => (window.location.href = '/chat');
+  // const restore = () => (window.location.href = '/chat');
 
   // inside your React page component
   const handleLogout = () => {
@@ -516,10 +546,10 @@ export default function Home() {
         {/* Main Content with transparency & z-index */}
         <div className="relative flex place-content-center items-center justify-center min-h-screen min-w-screen bg-amber-50/80 z-10">
         {/* Black overlay */}
-        <div
-          className={`fixed inset-0 z-40 bg-black ${loading ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}/>
+        {/* <div
+          className={`fixed inset-0 z-40 bg-black ${loading ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}/> */}
         {/* Loading UI */}
-        {loading && (
+        {/* {loading && (
           <div className="fixed inset-0 z-50 flex flex-col items-center justify-center text-white">
             <div className="mb-4 text-lg animate-bounce">
               {loadingMessage}
@@ -531,10 +561,10 @@ export default function Home() {
               />
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Violation modal */}
-        {disable && (
+        {/* {disable && (
           <div className="absolute inset-0 z-70 flex items-center justify-center bg-white/50 transition-opacity">
             <div className="bg-red-500 p-4 rounded-sm shadow-sm">
               <p className="text-neutral-800">
@@ -542,7 +572,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Matter.js scene */}
         <div ref={sceneRef} className="hidden absolute inset-0 z-0 md:block" />
@@ -609,7 +639,7 @@ export default function Home() {
               transition={{ type: 'spring', stiffness: 120, damping: 20 }}
               className="text-lg text-neutral-800 font-regular mb-8"
             >
-              <i>"Overwhelming moments can lowkey strike as fast as lightning, so your way to release and vent should be just as fast."</i>
+              <i>&ldquo;Overwhelming moments can lowkey strike as fast as lightning, so your way to release and vent should be just as fast.&rdquo;</i>
             </motion.h3>
           </div>
           <div className="flex gap-x-8 place-content-center">
@@ -643,43 +673,48 @@ export default function Home() {
               read tarot with me!
             </motion.button>
           </div>
+          <div className="mt-6">
+            <span onClick={handleLogout} className="z-20 text-red-500 text-sm mt-2 block hover:underline cursor-pointer">
+              Logout
+            </span>
+          </div>
+        </div>
+        </div>
+        <div ref={nextRef} className="relative flex place-content-center items-center justify-center min-h-screen min-w-screen bg-amber-300/95">
+          <div className="flex w-3/4 px-32 place-content-between gap-x-24">
+            <span className="place-content-center align-center">
+              <h1 className="text-9xl text-neutral-800 font-bold">
+                DANTE
+              </h1>
+              <p className="text-xl font-light text-neutral-800 mb-4">
+                <i>[dan-tae]</i> (n.) - an AI-companion tailored with user preferences to vibe with you, understand you, support you, relate to you, or just sit there and listen AT ANY TIME.
+              </p>
+              <br />
+              <p className="text-md font-light text-neutral-800 mb-4 italic">
+                &ldquo;Life today can feel like too much. There are always things to do, choices to make, and distractions that never stop. Therefore, DANTE is here to help you understand yourself better, cope with the challenges you face, and grow together with you.&rdquo;
+              </p>
+              <p className="text-md font-light text-neutral-800 mb-4 italic">
+                &quot;But how are we <b>different</b> than other solutions? Stay tuned, I guess :3&quot;
+              </p>
+            </span>
+          </div>
+        </div>
+        <div className="relative flex place-content-center items-center justify-center w-full py-24 bg-neutral-950 z-0">
+          <div className="flex w-screen px-64 place-content-center">
+            {/* <span className="w-1/2 place-content-center align-center">
+              <h1 className="text-9xl text-neutral-800 font-bold">
+                DANTE
+              </h1>
+            </span> */}
+            <span className="flex flex-col w-1/2 place-content-center align-center text-center gap-y-4">
+              <p className="text-sm font-light text-neutral-200">
+                contact my mentor <a href="https://www.instagram.com/tony.tts_" className="hover:italic cursor-pointer"><u>here!</u></a>
+              </p>
+              <p className="font-extralight text-xs">All rights reserved to DANTE © (2025)</p>
+            </span>
+          </div>
         </div>
       </div>
-      <div ref={nextRef} className="relative flex place-content-center items-center justify-center min-h-screen min-w-screen bg-amber-300/95">
-        <div className="flex w-3/4 px-32 place-content-between gap-x-24">
-          <span className="place-content-center align-center">
-            <h1 className="text-9xl text-neutral-800 font-bold">
-              DANTE
-            </h1>
-            <p className="text-xl font-light text-neutral-800 mb-4">
-              <i>[dan-tae]</i> (n.) - an AI-companion tailored with user preferences to vibe with you, understand you, support you, relate to you, or just sit there and listen AT ANY TIME.
-            </p>
-            <br />
-            <p className="text-md font-light text-neutral-800 mb-4 italic">
-              "Life today can feel like too much. There are always things to do, choices to make, and distractions that never stop. Therefore, DANTE is here to help you understand yourself better, cope with the challenges you face, and grow together with you."
-            </p>
-            <p className="text-md font-light text-neutral-800 mb-4 italic">
-              "But how are we <b>different</b> than other solutions? Stay tuned, I guess :3"
-            </p>
-          </span>
-        </div>
-      </div>
-      <div className="relative flex place-content-center items-center justify-center w-full py-24 bg-neutral-950 z-0">
-        <div className="flex w-screen px-64 place-content-center">
-          {/* <span className="w-1/2 place-content-center align-center">
-            <h1 className="text-9xl text-neutral-800 font-bold">
-              DANTE
-            </h1>
-          </span> */}
-          <span className="flex flex-col w-1/2 place-content-center align-center text-center gap-y-4">
-            <p className="text-sm font-light text-neutral-200">
-              contact my mentor <a href="https://www.instagram.com/tony.tts_" className="hover:italic cursor-pointer"><u>here!</u></a>
-            </p>
-            <p className="font-extralight text-xs">All rights reserved to DANTE © (2025)</p>
-          </span >
-        </div>
-      </div>
-    </div>
     </div>
   );
 }

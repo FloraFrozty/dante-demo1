@@ -448,7 +448,7 @@ export default function Home() {
   const TUTORIAL_COOKIE = 'dante_tutorial_seen';
   const TUTORIAL_SLIDES: { src: string; title: string; blurb?: string }[] = [
     { src: '/tutorial/slide1.png', title: 'Pick a Spread', blurb: 'Choose a spread.' },
-    { src: '/tutorial/slide2.png', title: 'Ask a Question', blurb: "Ask a question. The more detailed, the better the interpretation's reuslts" },
+    { src: '/tutorial/slide2.png', title: 'Ask a Question', blurb: "Ask a question. The more detailed, the better the interpretation's results" },
     { src: '/tutorial/slide3.png', title: 'Draw Cards', blurb: 'Draw the cards. You also have options to shuffle cards too.' },
     { src: '/tutorial/slide4.png', title: 'Reveal & Read', blurb: 'Cards flip, then asks DANTE to narrate your reading.' },
     { src: '/tutorial/slide5.png', title: 'Save & Restart', blurb: 'Restart anytime or save notes for later.' },

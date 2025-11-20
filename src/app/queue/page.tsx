@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import axios from 'axios';
 import Matter from 'matter-js';
 import { motion } from "motion/react";

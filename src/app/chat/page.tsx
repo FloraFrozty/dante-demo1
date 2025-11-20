@@ -10,9 +10,9 @@ import ReactMarkdown from "react-markdown";
 function splitParagraphToSentences(paragraph: string): string[] {
   const abbreviations = ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Sr.", "Jr.", "e.g.", "i.e."];
 
-  function isUppercase(char: string): boolean {
-    return char >= "A" && char <= "Z";
-  }
+  // function isUppercase(char: string): boolean {
+  //   return char >= "A" && char <= "Z";
+  // }
 
   function isEmoji(char: string): boolean {
     const code = char.codePointAt(0);
@@ -29,7 +29,7 @@ function splitParagraphToSentences(paragraph: string): string[] {
 
   function isSentenceTerminator(char: string, index: number): boolean {
     if (char === "." || char === "!" || char === "?" || char === "…") {
-      for (let abbr of abbreviations) {
+      for (const abbr of abbreviations) {
         const start = index - abbr.length + 1;
         if (start >= 0 && paragraph.substring(start, index + 1) === abbr) {
           return false;
@@ -349,27 +349,23 @@ export default function ChatPage() {
     }
   };  
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
+  // const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  //   if (e.key === "Enter" && !e.shiftKey) {
+  //     e.preventDefault();
+  //     handleSend();
+  //   }
   };
 
-  const fetchData = async () => {
-    const tid = await getThreadID();
-    setThreadID(tid);
-    return tid;
-  };
+  // const fetchData = async () => {
+  //   const tid = await getThreadID();
+  //   setThreadID(tid);
+  //   return tid;
+  // };
 
   // Automatically scroll to the bottom when messages change.
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  useEffect(() => {
-    hook();
-  }, []);
 
   // Optionally, refresh history on mount.
   useEffect(() => {

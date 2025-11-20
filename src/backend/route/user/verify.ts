@@ -26,7 +26,7 @@ const verifyUser = async (req: Request, res: Response) => {
       const initial = {
         auth0_id,
         UID: String(Date.now()),
-        approved: false,
+        approved: true,
         createdAt: new Date(),
         preferences: { theme: 'dark', language: 'en' }
       };
