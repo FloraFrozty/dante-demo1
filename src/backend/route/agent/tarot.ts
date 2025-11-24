@@ -1,16 +1,59 @@
-import { Router, type Request, type Response, type RequestHandler } from 'express';
+import { Router, type RequestHandler } from 'express';
 import { oa_cli } from '../../module/openaiConfig';
 
 export const agentTarotRoute = Router();
 
 const VECTOR_STORE_ID = 'vs_6874ef51266081918ecbd1cccb3f127e';
 
-const safeText = (r: any): string => {
-  if (typeof r?.output_text === 'string') return r.output_text.trim();
-  if (Array.isArray(r?.output) && r.output[0]?.content?.[0]?.type === 'output_text') {
-    return (r.output[0].content[0].text || '').trim();
+const safeText = (r: unknown): string => {
+  if (typeof r === 'object' && r !== null) {
+    const obj = r as {
+      output_text?: unknown;
+      output?: unknown;
+      choices?: unknown;
+    };
+
+    // 1) Responses API: top-level output_text
+    if (typeof obj.output_text === 'string') {
+      return obj.output_text.trim();
+    }
+
+    // 2) Responses API: output[0].content[0].type === 'output_text'
+    if (Array.isArray(obj.output)) {
+      const first = obj.output[0];
+      if (first && typeof first === 'object' && 'content' in first) {
+        const content = (first as { content?: unknown }).content;
+        if (Array.isArray(content)) {
+          const firstContent = content[0];
+          if (
+            firstContent &&
+            typeof firstContent === 'object' &&
+            'type' in firstContent &&
+            (firstContent as { type?: unknown }).type === 'output_text'
+          ) {
+            const text = (firstContent as { text?: unknown }).text;
+            if (typeof text === 'string') {
+              return text.trim();
+            }
+          }
+        }
+      }
+    }
+
+    // 3) Chat Completions API: choices[0].message.content
+    if (Array.isArray(obj.choices)) {
+      const firstChoice = obj.choices[0];
+      if (firstChoice && typeof firstChoice === 'object' && 'message' in firstChoice) {
+        const message = (firstChoice as { message?: unknown }).message;
+        if (message && typeof message === 'object' && 'content' in message) {
+          const content = (message as { content?: unknown }).content;
+          if (typeof content === 'string') return content.trim();
+          return String(content ?? '').trim();
+        }
+      }
+    }
   }
-  if (r?.choices?.[0]?.message?.content) return String(r.choices[0].message.content).trim();
+
   return '';
 };
 
@@ -110,17 +153,18 @@ const tarotRouteHandler: RequestHandler = async (req, res): Promise<void> => {
     }
 
     res.status(200).json({ language, result: reasoning });
-  } catch (err: any) {
-    console.error('Tarot interpretation error:', {
-      message: err?.message,
-      code: err?.code,
-      status: err?.status,
-      data: err?.response?.data,
-    });
-    res.status(500).json({
-      error: 'Failed to interpret tarot result.',
-      detail: err?.response?.data ?? err?.message ?? 'Unknown error',
-    });
+  } catch (err) {
+    // console.error('Tarot interpretation error:', {
+    //   message: err?.message,
+    //   code: err?.code,
+    //   status: err?.status,
+    //   data: err?.response?.data,
+    // });
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'Unknown error' });
+    }
   }
 };
 

@@ -43,9 +43,13 @@ const attachFile = async (req: Request, res: Response) => {
 
     res.status(200).json({ message: "File attached successfully" });
     return
-  } catch (error: any) {
+  } catch (error) {
     console.error("[attachFile] error:", error);
-    res.status(500).json({ error: error.message });
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: "Unknown error" });
+    }
     return;
   }
 };

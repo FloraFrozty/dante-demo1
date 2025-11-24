@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import auth0LogoutRoute from './logout'
 import auth0LoginRoute from './login'
 

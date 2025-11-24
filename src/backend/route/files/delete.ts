@@ -19,9 +19,13 @@ filesDeleteRoute.post('/delete', async (req: Request, res: Response) => {
     const result = await oa_cli.files.del(fileID);
     res.json({ ok: true, result });
     return;
-  } catch (err: any) {
+  } catch (err) {
     console.error('‼ [files/delete] error calling OpenAI:', err);
-    res.status(500).json({ error: err.message });
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'An unknown error occurred' });
+    }
     return;
   }
 });

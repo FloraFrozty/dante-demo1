@@ -29,9 +29,13 @@ const kpiClick = async (req: Request, res: Response) => {
     });
 
     res.status(201).json({ ok: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error('kpiClick error:', error);
-    res.status(500).json({ error: error.message ?? 'Internal server error' });
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message ?? 'Internal server error' });
+    } else {
+      res.status(500).json({ error: 'Internal server error' });
+    }
   }
 };
 

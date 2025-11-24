@@ -1,5 +1,4 @@
-// route/auth0/logout.ts
-import { Router, Request, Response, NextFunction } from 'express';
+import { Router } from 'express';
 
 const auth0LogoutRoute = Router();
 

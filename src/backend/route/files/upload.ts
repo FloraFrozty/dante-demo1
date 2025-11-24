@@ -4,7 +4,7 @@ import fs from 'fs';
 
 export const filesUploadRoute = Router();
 
-const uploadFile = async (req: Request, res: Response) => {
+const uploadFile = async (req: Request, res: Response): Promise<void> => {
     
     try {
         const { filePath } = req.body;
@@ -15,8 +15,12 @@ const uploadFile = async (req: Request, res: Response) => {
         )
 
         res.status(200).json({ result: file });
-    } catch (error:any) {
-        res.status(500).json({ error: error.message });
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(500).json({ error: error.message });
+        } else {
+            res.status(500).json({ error: 'Unknown error' });
+        }
     }
 };
 

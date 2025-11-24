@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { assistantThreadRoute } from './thread/index'
 import { assistantMessageRoute } from './message/index'
 import { assistantRunRoute } from './run/index'

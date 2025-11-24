@@ -71,26 +71,6 @@ export default function Home() {
   // cleanup interval on unmount
   useEffect(() => () => clearInterval(finalInterval.current), []);
 
-  // useEffect(() => {
-  //   const verifyUser = async () => {
-  //     try {
-  //       await axios.get(`${URL_CONFIG.url}/user/verify`, { withCredentials: true });
-  //     } catch (error: any) {
-  //       if (error.response?.status === 403) {
-  //         // user exists but not approved → send to queue page
-  //         window.location.href = "/queue";
-  //       } else if (error.response?.status === 401) {
-  //         window.location.href = `${URL_CONFIG.url}/auth0/login`;
-  //         return;
-  //       } else {
-  //         console.error("Verification error:", error);
-  //       }
-  //     }
-  //   };
-  
-  //   verifyUser();
-  // }, []);
-
   useEffect(() => {
     const verifyUser = async () => {
       try {

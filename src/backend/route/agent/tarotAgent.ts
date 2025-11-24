@@ -24,8 +24,12 @@ agentTarotRoute.post('/tarot', async (req: Request, res: Response) => {
 
     const result = completion.choices[0].message?.content?.trim();
     res.status(200).json({ result });
-  } catch (err: any) {
+  } catch (err) {
     console.error('Tarot interpretation error:', err);
-    res.status(500).json({ error: 'Failed to interpret tarot result. ' + err.message });
+    if (err instanceof Error) {
+      res.status(500).json({ error: 'Failed to interpret tarot result. ' + err.message });
+    } else {
+      res.status(500).json({ error: 'Unknown error' });
+    }
   }
 });

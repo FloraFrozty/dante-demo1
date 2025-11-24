@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { /* Noto_Sans, */ Prompt } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({

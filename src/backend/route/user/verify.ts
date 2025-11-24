@@ -65,10 +65,15 @@ const verifyUser = async (req: Request, res: Response) => {
       userEnv
     });
 
-  } catch (err: any) {
+  } catch (err) {
     console.error('[verifyUser]', err);
-    res.status(500).json({ error: err.message });
-  } 
+
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'Unknown error' });
+    }
+  }
 };
 
 // only mount the `/verify` endpoint here;

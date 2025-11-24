@@ -1,8 +1,8 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { assitanceMessageCreateRoute } from './create'
-import { assitanceMessageListRoute } from './list'
+// import { assitanceMessageListRoute } from './list'
 
 export const assistantMessageRoute = Router();
 
 assistantMessageRoute.use(assitanceMessageCreateRoute)
-assistantMessageRoute.use(assitanceMessageListRoute)
+// assistantMessageRoute.use(assitanceMessageListRoute)

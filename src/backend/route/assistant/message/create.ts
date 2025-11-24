@@ -14,8 +14,12 @@ const createMessage = async (req: Request, res: Response) => {
         });
 
         res.status(200).json({ message: "Message sent successfully" });
-    } catch (error:any) {
-        res.status(500).json({ error: error.message });
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(500).json({ error: error.message });
+        } else {
+            res.status(500).json({ error: "Unknown error" });
+        }
     }
 };
 

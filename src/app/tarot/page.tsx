@@ -2,9 +2,9 @@
 
 // Imports from plugins and libraries
 import { useState, useEffect, useRef } from 'react';
-import axios, { spread } from 'axios';
+import axios/*, { spread }*/ from 'axios';
 import { motion, AnimatePresence } from "motion/react";
-import { animate } from 'animejs';
+// import { animate } from 'animejs';
 import { Brain, CalendarClock, Lightbulb, Sparkle, X, Sprout } from "lucide-react";
 import Cookies from "js-cookie";
 
@@ -53,7 +53,7 @@ function shuffleArray<T>(array: T[]): T[] {
   return a;
 }
 
-const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+// const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 // [ADDED] Small hook to track viewport size (desktop+tablet only use)
 function useViewportSize() {
@@ -128,8 +128,8 @@ export default function Home() {
   const [selected, setSelected] = useState<string[]>([]);
   const [question, setQuestion] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [result, setResult] = useState<any>(null);
-  const [stage, setStage] = useState<'select' | 'reveal'>('select');
+  const [result, setResult] = useState('');
+  const [stage/*, setStage*/] = useState<'select' | 'reveal'>('select');
   const [hovered, setHovered] = useState<number | null>(null);
   const [cursorAngle, setCursorAngle] = useState(0);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -212,25 +212,25 @@ export default function Home() {
   };
 
   // [ADDED] Pull per-card reading text based on current spread type (upright.* > general.meaning > interpretation)
-  const getReadingText = (cardId: string, mode: SpreadType): string => {
-    const raw = (tarot as TarotCardRaw[]).find(c => c.fileName === cardId || c.name === cardId);
-    if (!raw) return cardId;
+  // const getReadingText = (cardId: string, mode: SpreadType): string => {
+  //   const raw = (tarot as TarotCardRaw[]).find(c => c.fileName === cardId || c.name === cardId);
+  //   if (!raw) return cardId;
 
-    const title = raw.name ?? raw.fileName ?? cardId;
+  //   const title = raw.name ?? raw.fileName ?? cardId;
 
-    // Primary: upright by mode (only for one-card styles or if you choose to reuse)
-    const uprightByMode =
-      mode && (mode === 'daily')
-        ? raw.upright?.[mode] ?? null
-        : null;
+  //   // Primary: upright by mode (only for one-card styles or if you choose to reuse)
+  //   const uprightByMode =
+  //     mode && (mode === 'daily')
+  //       ? raw.upright?.[mode] ?? null
+  //       : null;
 
-    // Fallbacks
-    const generalMeaning = raw.general?.meaning ?? null;
-    const legacy = raw.interpretation ?? null;
+  //   // Fallbacks
+  //   const generalMeaning = raw.general?.meaning ?? null;
+  //   const legacy = raw.interpretation ?? null;
 
-    const text = uprightByMode || generalMeaning || legacy || '';
-    return text ? `${title} — ${text}` : title;
-  };
+  //   const text = uprightByMode || generalMeaning || legacy || '';
+  //   return text ? `${title} — ${text}` : title;
+  // };
 
   const MAX_SELECTION =
     spreadType ? SPREAD_META[spreadType].picks :
@@ -487,8 +487,6 @@ export default function Home() {
 
   const REVEAL_MOUNT_DELAY_MS = 180; // match your arc exit (180ms) + tiny buffer
 
-  const REVEAL_STAGGER_START = 0.18;
-
   // ⭐ UPDATED: now also sends sessionId + spreadType
   const trackClick = (event: string, spreadType?: SpreadType) => {
     axios.post(
@@ -587,19 +585,17 @@ export default function Home() {
       return () => clearTimeout(t);
     }
     setPostReveal(false);
-  }, [hasSubmitted, showDeck, stage, selected.length]);
+  }, [hasSubmitted, showDeck, stage, selected.length, spreadType]);
 
   useEffect(() => {
     if (!result) return;
 
     let cancelled = false;
-    let startTimer: number | undefined;
     let tickTimer: number | undefined;
 
-    // show "typing..." right away (the dots animation is driven by isWaitingToType + ellipsis effect)
     setIsWaitingToType(true);
-    setIsTyping(false);        // prevent the caret from showing during waiting
-    setTyped('');              // avoid blink of full text
+    setIsTyping(false);
+    setTyped('');
 
     const beginTyping = () => {
       if (cancelled) return;
@@ -626,16 +622,14 @@ export default function Home() {
         tickTimer = window.setTimeout(tick, delay);
       };
 
-      // small kick-off delay so the first char doesn't feel abrupt after wait
       tickTimer = window.setTimeout(tick, TYPE_BASE_MS);
     };
 
-    // 3s wait before typing begins
-    startTimer = window.setTimeout(beginTyping, TYPING_DELAY_MS);
+    const startTimer = window.setTimeout(beginTyping, TYPING_DELAY_MS);
 
     return () => {
       cancelled = true;
-      if (startTimer) clearTimeout(startTimer);
+      clearTimeout(startTimer);
       if (tickTimer) clearTimeout(tickTimer);
     };
   }, [result]);
@@ -1525,14 +1519,14 @@ export default function Home() {
           )}
           {/* [ADD] Floating “Tutorial” button (always available) */}
           <div className="fixed bottom-6 right-6 gap-4 flex place-content-end">
-            {/* <button
+            <button
               onClick={openTutorialAnytime}
               className="rounded-full bg-neutral-900/90 border border-neutral-700 shadow-lg px-4 py-3 text-sm text-neutral-200 hover:bg-neutral-800 transition"
               title="Open tutorial"
             >
               Tutorial
             </button>
-            <button
+            {/* <button
               onClick={() => {
                 // ❌ clear agreement cookie
                 Cookies.remove('dante_agreed');

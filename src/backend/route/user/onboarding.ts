@@ -21,9 +21,13 @@ const checkOnboarding = async (req: Request, res: Response) => {
     const answers = user.onboardingAnswers ?? null;
 
     res.status(200).json({ answers });
-  } catch (err: any) {
+  } catch (err) {
     console.error('checkOnboarding error:', err);
-    res.status(500).json({ error: err.message });
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'Unknown error' });
+    }
   }
 };
 
@@ -69,9 +73,13 @@ const submitOnboarding = async (req: Request, res: Response) => {
     );
 
     res.status(200).json({ message: 'Onboarding saved' });
-  } catch (err: any) {
+  } catch (err) {
     console.error('submitOnboarding error:', err);
-    res.status(500).json({ error: err.message });
+    if (err instanceof Error) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(500).json({ error: 'Unknown error' });
+    }
   }
 };
 
