@@ -36,20 +36,8 @@ type TarotCardInfo = {
 };
 
 // URL CONFIG
-// const URL_CONFIG = {
-//   url: process.env.APP_BASE_URL ?? 'http://localhost:8080'
-// };
-
 const URL_CONFIG = {
-  url:
-    typeof window === 'undefined'
-      // Server: APP_BASE_URL → NEXT_PUBLIC_APP_BASE_URL → localhost
-      ? process.env.APP_BASE_URL ??
-        process.env.NEXT_PUBLIC_APP_BASE_URL ??
-        'http://localhost:8080'
-      // Client: NEXT_PUBLIC_APP_BASE_URL → localhost
-      : process.env.NEXT_PUBLIC_APP_BASE_URL ??
-        'http://localhost:8080'
+  url: process.env.NEXT_PUBLIC_APP_BASE_URL ?? 'http://localhost:8080'
 };
 
 
