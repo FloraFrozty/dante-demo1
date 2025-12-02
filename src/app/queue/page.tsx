@@ -6,7 +6,7 @@ import Matter from 'matter-js';
 import { motion } from "motion/react";
 
 const URL_CONFIG = {
-  url: 'http://localhost:8080'
+  url: process.env.APP_BASE_URL ?? 'http://localhost:8080'
 };
 
 export default function Home() {
