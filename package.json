@@ -9,7 +9,7 @@
     "lint": "next lint",
     "build:ts": "tsc --project server.tsconfig.json",
     "dev:be": "ts-node --project server.tsconfig.json src/backend/index.ts",
-    "start:be": "node dist/backend/index.js"
+    "start:be": "node dist/index.js"
   },
   "dependencies": {
     "@openai/agents": "^0.2.1",
