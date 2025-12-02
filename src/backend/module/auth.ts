@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 export const oidcConfig = {
   authRequired: false,
   auth0Logout: true,
@@ -7,10 +9,9 @@ export const oidcConfig = {
   issuerBaseURL: process.env.AUTH0_DOMAIN,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
   session: {
-    // leave cookie.name etc default unless you’ve customized it
     cookie: {
-      sameSite: 'none',  // allow cross-site requests from Vercel -> Render
-      secure: true       // required for SameSite=None cookies
+      sameSite: isProd ? 'None' : 'Lax', // allow cross-site requests from Vercel -> Render
+      secure: isProd       // required for SameSite=None cookies
     }
   }
 };
