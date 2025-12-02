@@ -16,7 +16,8 @@ async function main() {
 
   // ── CORS allowlist (frontends you actually visit from the browser)
   const ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    // 'http://localhost:3000'
+    'https://dante-demo1.vercel.app'
   ];
 
   const corsOptions: cors.CorsOptions = {
