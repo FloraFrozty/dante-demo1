@@ -8,7 +8,7 @@ import { oidcConfig } from './module/auth';
 import { userVerifyRoute } from './route/user/verify';
 import auth0LogoutRoute from './route/auth0/logout';
 import auth0LoginRoute from './route/auth0/login';
-import { assistantThreadRoute } from './route/assistant/thread';
+// import { assistantThreadRoute } from './route/assistant/thread';
 import { route } from './route/index';
 
 async function main() {
@@ -57,7 +57,7 @@ async function main() {
   app.use('/user', userVerifyRoute);
   app.use('/auth0', auth0LogoutRoute);
   app.use('/auth0', auth0LoginRoute);
-  app.use('/assistant/thread', assistantThreadRoute);
+  // app.use('/assistant/thread', assistantThreadRoute);
   app.use(route);
 
   // Protected health check (verifies session works)
