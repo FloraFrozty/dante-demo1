@@ -5,5 +5,12 @@ export const oidcConfig = {
   baseURL: process.env.APP_BASE_URL,
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: process.env.AUTH0_DOMAIN,
-  clientSecret: process.env.AUTH0_CLIENT_SECRET
+  clientSecret: process.env.AUTH0_CLIENT_SECRET,
+  session: {
+    // leave cookie.name etc default unless you’ve customized it
+    cookie: {
+      sameSite: 'none',  // allow cross-site requests from Vercel -> Render
+      secure: true       // required for SameSite=None cookies
+    }
+  }
 };
