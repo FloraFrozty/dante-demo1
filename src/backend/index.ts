@@ -16,7 +16,7 @@ async function main() {
 
   // ── CORS allowlist (frontends you actually visit from the browser)
   const ALLOWED_ORIGINS = [
-    // 'http://localhost:3000'
+    'http://localhost:3000',
     'https://dante-demo1.vercel.app'
   ];
 
@@ -70,8 +70,10 @@ async function main() {
     res.json({ isAuthed: req.oidc.isAuthenticated() });
   });
 
-  http.createServer(app).listen(8080, () => {
-    console.log('⚡ listening on http://localhost:8080');
+  const PORT = process.env.PORT || 8080;
+
+  http.createServer(app).listen(PORT, () => {
+    console.log(`⚡ listening on http://localhost:${PORT}`);
   });
 }
 
