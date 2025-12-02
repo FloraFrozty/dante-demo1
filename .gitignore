@@ -43,3 +43,14 @@ next-env.d.ts
 # Temp files
 dist
 result.txt
+
+# hidden files
+src/app/chat/
+src/app/secret/
+src/backend/route/agent/guardrailInput.ts
+src/backend/route/agent/guardrailOutput.ts
+src/backend/route/agent/narrative.ts
+src/backend/route/assistant/
+src/backend/route/user/thread.ts
+src/backend/route/user/profile.ts
+src/backend/route/vector/
